@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+@Entity
+@Table(name = "Estate")
 public class Estate {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
+    @Column
     private String name;
-
-
+    @Column
     private String country;
-
-
+    @OneToMany
+    @JsonIgnoreProperties({"estate"})
     private List<Chocolate> chocolates;
 
     public Estate(String name, String country) {
